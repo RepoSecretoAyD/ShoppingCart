@@ -1,0 +1,11 @@
+c:\users\william\documents\visual studio 2013\Projects\ShoppingCart\ShoppingCart.Specs\bin\Debug\ShoppingCart.Specs.dll.config
+c:\users\william\documents\visual studio 2013\Projects\ShoppingCart\ShoppingCart.Specs\bin\Debug\ShoppingCart.Specs.dll
+c:\users\william\documents\visual studio 2013\Projects\ShoppingCart\ShoppingCart.Specs\bin\Debug\ShoppingCart.Specs.pdb
+c:\users\william\documents\visual studio 2013\Projects\ShoppingCart\ShoppingCart.Specs\bin\Debug\Moq.dll
+c:\users\william\documents\visual studio 2013\Projects\ShoppingCart\ShoppingCart.Specs\bin\Debug\TechTalk.SpecFlow.dll
+c:\users\william\documents\visual studio 2013\Projects\ShoppingCart\ShoppingCart.Specs\bin\Debug\Moq.xml
+c:\users\william\documents\visual studio 2013\Projects\ShoppingCart\ShoppingCart.Specs\obj\Debug\ShoppingCart.Specs.csprojResolveAssemblyReference.cache
+c:\users\william\documents\visual studio 2013\Projects\ShoppingCart\ShoppingCart.Specs\obj\Debug\ShoppingCart.Specs.dll
+c:\users\william\documents\visual studio 2013\Projects\ShoppingCart\ShoppingCart.Specs\obj\Debug\ShoppingCart.Specs.pdb
+c:\users\william\documents\visual studio 2013\Projects\ShoppingCart\ShoppingCart.Specs\bin\Debug\ShoppingCart.Logic.dll
+c:\users\william\documents\visual studio 2013\Projects\ShoppingCart\ShoppingCart.Specs\bin\Debug\ShoppingCart.Logic.pdb
