@@ -65,5 +65,13 @@ namespace ShoppingCart.Specs
         {
         }
 
+        [Then(@"the user is presented with an error message")]
+        public void ThenTheUserIsPresentedWithAnErrorMessage()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
+
     }
 }
