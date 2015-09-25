@@ -143,19 +143,23 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "ProductId",
                         "ProductName",
-                        "Price"});
+                        "Price",
+                        "Quantity"});
             table3.AddRow(new string[] {
                         "1",
                         "Arroz Progreso",
-                        "50"});
+                        "50",
+                        "200"});
             table3.AddRow(new string[] {
                         "2",
                         "Carne",
-                        "40"});
+                        "40",
+                        "300"});
             table3.AddRow(new string[] {
                         "3",
                         "Queso",
-                        "10"});
+                        "10",
+                        "250"});
 #line 24
   testRunner.And("the products table is the following", ((string)(null)), table3, "And ");
 #line 29
@@ -212,14 +216,14 @@ this.ScenarioSetup(scenarioInfo);
                         "2",
                         "Carne",
                         "40",
-                        "20"});
+                        "10"});
             table5.AddRow(new string[] {
                         "3",
                         "Queso",
                         "10",
-                        "10"});
+                        "5"});
 #line 41
-  testRunner.And("the products table with quantity is the following", ((string)(null)), table5, "And ");
+  testRunner.And("the products table is the following", ((string)(null)), table5, "And ");
 #line 46
  testRunner.When("the subtotal is calculated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 47
@@ -281,7 +285,7 @@ this.ScenarioSetup(scenarioInfo);
                         "10",
                         "50"});
 #line 57
-  testRunner.And("the products table with quantity is the following", ((string)(null)), table7, "And ");
+  testRunner.And("the products table is the following", ((string)(null)), table7, "And ");
 #line 62
  testRunner.When("the subtotal is calculated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 63

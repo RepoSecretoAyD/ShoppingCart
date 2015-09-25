@@ -12,7 +12,8 @@ Scenario: Calculate Subtotal
 		| 3         | Queso          | 10    | 5        |
 	When the subtotal is calculated
 	Then the result should be 950
-	
+
+	#Ejercicio1
 Scenario: Calculate Subtotal from a stored cart
 	Given the cart stored for user is
 		| ProductId | Quantity | Owner		  |

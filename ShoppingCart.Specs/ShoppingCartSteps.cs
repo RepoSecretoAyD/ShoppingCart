@@ -52,7 +52,18 @@ namespace ShoppingCart.Specs
         [Given(@"the cart stored for user is")]
         public void GivenTheCartStoredForUserIs(Table table)
         {
-            _cartRepositoryMock.Setup(cr => cr.LoadCartItemsByUser("ccastro")).Throws(new Exception("hola"));
+            _cartRepositoryMock.Setup(cr => cr.LoadCartItemsByUser("ccastro")).Throws(new Exception("Wong user"));
+
+            var itemList = new List<ProductItem>();
+            foreach (var row in table.Rows)
+            {
+                var item = new ProductItem();
+                item.ProductId = int.Parse(row["ProductId"]);
+                item.Quantity = int.Parse(row["Quantity"]);
+                item.Owner = row["Owner"];
+                itemList.Add(item);
+            }
+            _cart.SetProductItems(itemList);
         }
 
         [Given(@"the user logged is '(.*)'")]
@@ -63,15 +74,30 @@ namespace ShoppingCart.Specs
         [Given(@"the products table is the following")]
         public void GivenTheProductsTableIsTheFollowing(Table table)
         {
+            var itemList = new List<CartItem>();
+            foreach (var row in table.Rows)
+            {
+                var item = new CartItem();
+                item.ProductId = int.Parse(row["ProductId"]);
+                item.ProductName = row["ProductName"];
+                item.Price = double.Parse(row["Price"]);
+                if (!string.IsNullOrEmpty(row["Quantity"]))
+                    item.Quantity = int.Parse(row["Quantity"]);
+                else
+                {
+                    item.Quantity = -1;
+                }
+                itemList.Add(item);
+            }
+            _cart.SetItems(itemList);
         }
-
+     
+        /////////////////////
         [Then(@"the user is presented with an error message")]
         public void ThenTheUserIsPresentedWithAnErrorMessage()
         {
-            ScenarioContext.Current.Pending();
+            throw new Exception("Quantity exceeds the ammount of products in existance!");
         }
-
-
 
     }
 }

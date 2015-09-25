@@ -5,6 +5,7 @@ namespace ShoppingCart.Logic
     public class Cart
     {
         private List<CartItem> _itemList=new List<CartItem>();
+        private List<ProductItem> _productitemList = new List<ProductItem>();
         private ICartRepository _cartRepository;
         private IProductRepository _productRepository;
 
@@ -20,14 +21,20 @@ namespace ShoppingCart.Logic
             _itemList = itemList;
         }
 
+        public void SetProductItems(List<ProductItem> productItemList)
+        {
+            _productitemList = productItemList;
+        }
+
         public void LoadCartByUser(string userName)
         {
-           List<ProductItem> productItems=  _cartRepository.LoadCartItemsByUser(userName);
+            _productitemList = _cartRepository.LoadCartItemsByUser(userName);
         }
 
         public double GetSubtotal()
         {
             LoadCartByUser("ccastro");
+
             double subtotal = 0;
             foreach (var cartItem in _itemList)
             {
