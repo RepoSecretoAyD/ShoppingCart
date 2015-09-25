@@ -52,7 +52,7 @@ namespace ShoppingCart.Specs
         [Given(@"the cart stored for user is")]
         public void GivenTheCartStoredForUserIs(Table table)
         {
-            _cartRepositoryMock.Setup(cr => cr.LoadCartItemsByUser("ccastro")).Throws(new Exception("Wong user"));
+            _cartRepositoryMock.Setup(cr => cr.LoadCartItemsByUser("ccastro")).Throws(new Exception("Wrong user"));
 
             var itemList = new List<ProductItem>();
             foreach (var row in table.Rows)
@@ -81,12 +81,8 @@ namespace ShoppingCart.Specs
                 item.ProductId = int.Parse(row["ProductId"]);
                 item.ProductName = row["ProductName"];
                 item.Price = double.Parse(row["Price"]);
-                if (!string.IsNullOrEmpty(row["Quantity"]))
-                    item.Quantity = int.Parse(row["Quantity"]);
-                else
-                {
-                    item.Quantity = -1;
-                }
+                item.Quantity = int.Parse(row["Quantity"]);
+                
                 itemList.Add(item);
             }
             _cart.SetItems(itemList);

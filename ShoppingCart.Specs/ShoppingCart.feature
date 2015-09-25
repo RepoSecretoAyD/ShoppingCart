@@ -22,10 +22,10 @@ Scenario: Calculate Subtotal from a stored cart
 		| 3         | 5        |   ccastro    |
 		And the user logged is 'ccastro'
 		And the products table is the following
-		| ProductId | ProductName    | Price |
-		| 1         | Arroz Progreso | 50    | 
-		| 2         | Carne          | 40    | 
-		| 3         | Queso          | 10    |  
+		| ProductId | ProductName    | Price | Quantity |
+		| 1         | Arroz Progreso | 50    | 200      |
+		| 2         | Carne          | 40    | 300      |
+		| 3         | Queso          | 10    | 250      |
 	When the subtotal is calculated
 	Then the result should be 950
 
@@ -41,8 +41,8 @@ Scenario: Try to calculate Subtotal from a stored cart thats not exceeding produ
 		And the products table is the following
 		| ProductId | ProductName    | Price | Quantity  |
 		| 1         | Arroz Progreso | 50    | 10        |
-		| 2         | Carne          | 40    | 20        |
-		| 3         | Queso          | 10    | 10        |
+		| 2         | Carne          | 40    | 10        |
+		| 3         | Queso          | 10    | 5         |
 	When the subtotal is calculated
 	Then the result should be 950
 
