@@ -20,12 +20,12 @@ Scenario: Calculate Subtotal from a stored cart
 		| 1         | 10       |   ccastro    |
 		| 2         | 10       |   ccastro    |
 		| 3         | 5        |   ccastro    |
-		And the user logged is 'ccastro'
-		And the products table is the following
+	And the products table is the following
 		| ProductId | ProductName    | Price | Quantity |
 		| 1         | Arroz Progreso | 50    | 200      |
 		| 2         | Carne          | 40    | 300      |
 		| 3         | Queso          | 10    | 250      |
+	And the user logged is 'ccastro'
 	When the subtotal is calculated
 	Then the result should be 950
 
@@ -37,12 +37,12 @@ Scenario: Try to calculate Subtotal from a stored cart thats not exceeding produ
 		| 1         | 10       |   ccastro    |
 		| 2         | 10       |   ccastro    |
 		| 3         | 5        |   ccastro    |
-		And the user logged is 'ccastro'
-		And the products table is the following
+	And the products table is the following
 		| ProductId | ProductName    | Price | Quantity  |
 		| 1         | Arroz Progreso | 50    | 10        |
-		| 2         | Carne          | 40    | 10        |
+		| 2         | Carne          | 40    | 15        |
 		| 3         | Queso          | 10    | 5         |
+	And the user logged is 'ccastro'
 	When the subtotal is calculated
 	Then the result should be 950
 
@@ -53,11 +53,11 @@ Scenario: Try to calculate Subtotal from a stored cart that is exceeding existan
 		| 1         | 100       |   ccastro    |
 		| 2         | 100       |   ccastro    |
 		| 3         | 50        |   ccastro    |
-		And the user logged is 'ccastro'
-		And the products table is the following
+	And the products table is the following
 		| ProductId | ProductName    | Price | Quantity  |
 		| 1         | Arroz Progreso | 50    | 70        |
 		| 2         | Carne          | 40    | 83        |
 		| 3         | Queso          | 10    | 50        |
+	And the user logged is 'ccastro'
 	When the subtotal is calculated
 	Then the user is presented with an error message

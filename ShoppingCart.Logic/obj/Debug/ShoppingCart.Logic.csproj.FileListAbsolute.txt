@@ -8,3 +8,8 @@ C:\Users\Javier\Documents\GitHub\ShoppingCart\ShoppingCart.Logic\bin\Debug\Shopp
 C:\Users\Javier\Documents\GitHub\ShoppingCart\ShoppingCart.Logic\obj\Debug\ShoppingCart.Logic.csprojResolveAssemblyReference.cache
 C:\Users\Javier\Documents\GitHub\ShoppingCart\ShoppingCart.Logic\obj\Debug\ShoppingCart.Logic.dll
 C:\Users\Javier\Documents\GitHub\ShoppingCart\ShoppingCart.Logic\obj\Debug\ShoppingCart.Logic.pdb
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Logic\bin\Debug\ShoppingCart.Logic.dll
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Logic\bin\Debug\ShoppingCart.Logic.pdb
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Logic\obj\Debug\ShoppingCart.Logic.csprojResolveAssemblyReference.cache
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Logic\obj\Debug\ShoppingCart.Logic.dll
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Logic\obj\Debug\ShoppingCart.Logic.pdb
