@@ -289,7 +289,279 @@ this.ScenarioSetup(scenarioInfo);
 #line 62
  testRunner.When("the subtotal is calculated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 63
- testRunner.Then("the user is presented with an error message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the user is presented with an error message about quantity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to calculate Subtotal from a stored cart that has no expired items")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ShoppingCart")]
+        public virtual void TryToCalculateSubtotalFromAStoredCartThatHasNoExpiredItems()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to calculate Subtotal from a stored cart that has no expired items", ((string[])(null)));
+#line 66
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ProductId",
+                        "Quantity",
+                        "Owner"});
+            table8.AddRow(new string[] {
+                        "1",
+                        "10",
+                        "ccastro"});
+            table8.AddRow(new string[] {
+                        "2",
+                        "10",
+                        "ccastro"});
+            table8.AddRow(new string[] {
+                        "3",
+                        "5",
+                        "ccastro"});
+#line 67
+ testRunner.Given("the cart stored for user is", ((string)(null)), table8, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ProductId",
+                        "ProductName",
+                        "Price",
+                        "Quantity",
+                        "Date"});
+            table9.AddRow(new string[] {
+                        "1",
+                        "Arroz Progreso",
+                        "50",
+                        "10",
+                        "1420113600000"});
+            table9.AddRow(new string[] {
+                        "2",
+                        "Carne",
+                        "40",
+                        "15",
+                        "1420113600000"});
+            table9.AddRow(new string[] {
+                        "3",
+                        "Queso",
+                        "10",
+                        "5",
+                        "1420113600000"});
+#line 72
+ testRunner.And("the products table with Date is the following", ((string)(null)), table9, "And ");
+#line 77
+ testRunner.And("the user logged is \'ccastro\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 78
+ testRunner.When("the subtotal is calculated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 79
+ testRunner.Then("the result should be 950", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to calculate Subtotal from a stored cart that has some expired items")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ShoppingCart")]
+        public virtual void TryToCalculateSubtotalFromAStoredCartThatHasSomeExpiredItems()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to calculate Subtotal from a stored cart that has some expired items", ((string[])(null)));
+#line 82
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ProductId",
+                        "Quantity",
+                        "Owner"});
+            table10.AddRow(new string[] {
+                        "1",
+                        "10",
+                        "ccastro"});
+            table10.AddRow(new string[] {
+                        "2",
+                        "10",
+                        "ccastro"});
+            table10.AddRow(new string[] {
+                        "3",
+                        "5",
+                        "ccastro"});
+#line 83
+ testRunner.Given("the cart stored for user is", ((string)(null)), table10, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ProductId",
+                        "ProductName",
+                        "Price",
+                        "Quantity",
+                        "Date"});
+            table11.AddRow(new string[] {
+                        "1",
+                        "Arroz Progreso",
+                        "50",
+                        "10",
+                        "1420113600000"});
+            table11.AddRow(new string[] {
+                        "2",
+                        "Carne",
+                        "40",
+                        "15",
+                        "1420113600000"});
+            table11.AddRow(new string[] {
+                        "3",
+                        "Queso",
+                        "10",
+                        "5",
+                        "1420070399000"});
+#line 88
+ testRunner.And("the products table with Date is the following", ((string)(null)), table11, "And ");
+#line 93
+ testRunner.And("the user logged is \'ccastro\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 94
+ testRunner.When("the subtotal is calculated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 95
+ testRunner.Then("the user is presented with an error message about expiration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to calculate Subtotal from a stored cart that has some discounts")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ShoppingCart")]
+        public virtual void TryToCalculateSubtotalFromAStoredCartThatHasSomeDiscounts()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to calculate Subtotal from a stored cart that has some discounts", ((string[])(null)));
+#line 98
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ProductId",
+                        "Quantity",
+                        "Owner"});
+            table12.AddRow(new string[] {
+                        "1",
+                        "10",
+                        "ccastro"});
+            table12.AddRow(new string[] {
+                        "2",
+                        "10",
+                        "ccastro"});
+            table12.AddRow(new string[] {
+                        "3",
+                        "5",
+                        "ccastro"});
+#line 99
+ testRunner.Given("the cart stored for user is", ((string)(null)), table12, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ProductId",
+                        "ProductName",
+                        "Price",
+                        "Quantity"});
+            table13.AddRow(new string[] {
+                        "1",
+                        "Arroz Progreso",
+                        "50",
+                        "10"});
+            table13.AddRow(new string[] {
+                        "2",
+                        "Carne",
+                        "40",
+                        "15"});
+            table13.AddRow(new string[] {
+                        "3",
+                        "Queso",
+                        "10",
+                        "5"});
+#line 104
+ testRunner.And("the products table is the following", ((string)(null)), table13, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ProductId",
+                        "Discount"});
+            table14.AddRow(new string[] {
+                        "2",
+                        "0.15"});
+#line 109
+ testRunner.And("the discounts table is the following", ((string)(null)), table14, "And ");
+#line 112
+ testRunner.And("the user logged is \'ccastro\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 113
+ testRunner.When("the subtotal is calculated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 114
+ testRunner.Then("the result should be 890", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to calculate Subtotal from a stored cart that has discounts on everything")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ShoppingCart")]
+        public virtual void TryToCalculateSubtotalFromAStoredCartThatHasDiscountsOnEverything()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to calculate Subtotal from a stored cart that has discounts on everything", ((string[])(null)));
+#line 117
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ProductId",
+                        "Quantity",
+                        "Owner"});
+            table15.AddRow(new string[] {
+                        "1",
+                        "10",
+                        "ccastro"});
+            table15.AddRow(new string[] {
+                        "2",
+                        "10",
+                        "ccastro"});
+            table15.AddRow(new string[] {
+                        "3",
+                        "5",
+                        "ccastro"});
+#line 118
+ testRunner.Given("the cart stored for user is", ((string)(null)), table15, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ProductId",
+                        "ProductName",
+                        "Price",
+                        "Quantity"});
+            table16.AddRow(new string[] {
+                        "1",
+                        "Arroz Progreso",
+                        "50",
+                        "10"});
+            table16.AddRow(new string[] {
+                        "2",
+                        "Carne",
+                        "40",
+                        "15"});
+            table16.AddRow(new string[] {
+                        "3",
+                        "Queso",
+                        "10",
+                        "5"});
+#line 123
+ testRunner.And("the products table is the following", ((string)(null)), table16, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ProductId",
+                        "Discount"});
+            table17.AddRow(new string[] {
+                        "1",
+                        "0.30"});
+            table17.AddRow(new string[] {
+                        "2",
+                        "0.15"});
+            table17.AddRow(new string[] {
+                        "3",
+                        "0.50"});
+#line 128
+ testRunner.And("the discounts table is the following", ((string)(null)), table17, "And ");
+#line 133
+ testRunner.And("the user logged is \'ccastro\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 134
+ testRunner.When("the subtotal is calculated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 135
+ testRunner.Then("the result should be 715", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

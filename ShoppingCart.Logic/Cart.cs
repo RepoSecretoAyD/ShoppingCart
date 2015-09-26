@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ShoppingCart.Logic.Entities;
 using ShoppingCart.Logic.Exceptions;
-using ShoppingCart.Logic.Repositories;
+using ShoppingCart.Logic.Interfaces_and_Repositories;
 
 namespace ShoppingCart.Logic
 {
@@ -15,15 +15,17 @@ namespace ShoppingCart.Logic
         private readonly ICartRepository _cartRepository;
         private readonly IProductRepository _productRepository;
         private readonly IDiscountRepository _discountRepository;
+        private readonly IDate _date;
         public List<CartItem> CartItems = new List<CartItem>();
         public string Owner;
 
 
-        public Cart(ICartRepository cartRepository,IProductRepository productRepository, IDiscountRepository discountRepository)
+        public Cart(ICartRepository cartRepository,IProductRepository productRepository, IDiscountRepository discountRepository, IDate date)
         {
             _cartRepository = cartRepository;
             _productRepository = productRepository;
             _discountRepository = discountRepository;
+            _date = date;
         }
 
         public void SetCartItems(List<CartItem> cartItems)
@@ -64,9 +66,11 @@ namespace ShoppingCart.Logic
                 var discountItem = _discountItems.FirstOrDefault(x => x.ProductId == cartItem.ProductId);
                 if(productItem != null && cartItem.Quantity > productItem.Quantity)
                     throw new InsufficientQuantityException(cartItem.ProductName);
-                if (productItem != null && productItem.ExpirationDate.Date < DateTime.Now.Date)
+                if (productItem != null && productItem.ExpirationDate < _date.Now)
                     throw new ItemExpiredException(cartItem.ProductName);
-                subtotal += (discountItem != null ? cartItem.Quantity * cartItem.Price * discountItem.Discount : cartItem.Quantity * cartItem.Price);
+                subtotal += (discountItem != null ? 
+                    cartItem.Quantity * cartItem.Price - (discountItem.Discount*cartItem.Quantity * cartItem.Price) : 
+                    cartItem.Quantity * cartItem.Price);
             }
             return subtotal;
         }

@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using ShoppingCart.Logic;
 using ShoppingCart.Logic.Entities;
-using ShoppingCart.Logic.Repositories;
+using ShoppingCart.Logic.Interfaces_and_Repositories;
 using ShoppingCart.Logic.Exceptions;
 using TechTalk.SpecFlow;
 
@@ -16,12 +16,14 @@ namespace ShoppingCart.Specs
         private readonly Mock<ICartRepository> _cartRepositoryMock=new Mock<ICartRepository>();
         private readonly Mock<IProductRepository> _productRepositoryMock = new Mock<IProductRepository>();
         private readonly Mock<IDiscountRepository> _discountRepositoryMock = new Mock<IDiscountRepository>();
+        private readonly Mock<IDate> _dateMock = new Mock<IDate>();
         private readonly Cart _cart ;
         private double _subtotal;
 
         public ShoppingCartSteps()
         {
-            _cart = new Cart(_cartRepositoryMock.Object,_productRepositoryMock.Object, _discountRepositoryMock.Object);
+            _cart = new Cart(_cartRepositoryMock.Object,_productRepositoryMock.Object, _discountRepositoryMock.Object, _dateMock.Object);
+            _dateMock.Setup(dm => dm.Now).Returns(new DateTime(2015, 1, 1));
         }
 
         [Given(@"the cart has the following items")]
@@ -80,6 +82,43 @@ namespace ShoppingCart.Specs
                 .Returns(itemList);
         }
 
+        [Given(@"the products table with Date is the following")]
+        public void GivenTheProductsTableWithDateIsTheFollowing(Table table)
+        {
+            var itemList = new List<ProductItem>();
+            foreach (var row in table.Rows)
+            {
+                var item = new ProductItem
+                {
+                    ProductId = int.Parse(row["ProductId"]),
+                    ProductName = row["ProductName"],
+                    Price = double.Parse(row["Price"]),
+                    Quantity = int.Parse(row["Quantity"]),
+                    ExpirationDate = new DateTime(1970,1,1).AddMilliseconds(long.Parse(row["Date"]))
+                };
+                itemList.Add(item);
+            }
+            _productRepositoryMock.Setup(pr => pr.LoadProductItemsFromStoredCartItems(It.IsAny<List<StoredCartItem>>()))
+                .Returns(itemList);
+        }
+
+        [Given(@"the discounts table is the following")]
+        public void GivenTheDiscountsTableIsTheFollowing(Table table)
+        {
+            var discountList = new List<DiscountItem>();
+            foreach (var tableRow in table.Rows)
+            {
+                var item = new DiscountItem
+                {
+                    ProductId = int.Parse(tableRow["ProductId"]),
+                    Discount = double.Parse(tableRow["Discount"])
+                };
+                discountList.Add(item);
+            }
+            _discountRepositoryMock.Setup(pr => pr.GetDisocDiscountsForProductList(It.IsAny<List<ProductItem>>()))
+                .Returns(discountList);
+        }
+
         [Given(@"the user logged is '(.*)'")]
         public void GivenTheUserLoggedIs(string p0)
         {
@@ -109,10 +148,17 @@ namespace ShoppingCart.Specs
             Assert.AreEqual(p0, _subtotal);
         }
 
-        [Then(@"the user is presented with an error message")]
-        public void ThenTheUserIsPresentedWithAnErrorMessage()
+        [Then(@"the user is presented with an error message about quantity")]
+        public void ThenTheUserIsPresentedWithAnErrorMessageAboutQuantity()
         {
             var exception = ScenarioContext.Current["InsufficientQuantity"];
+            Assert.IsNotNull(exception);
+        }
+
+        [Then(@"the user is presented with an error message about expiration")]
+        public void ThenTheUserIsPresentedWithAnErrorMessageAboutExpiration()
+        {
+            var exception = ScenarioContext.Current["ItemExpired"];
             Assert.IsNotNull(exception);
         }
     }
