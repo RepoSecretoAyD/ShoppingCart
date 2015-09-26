@@ -45,6 +45,8 @@
     <Compile Include="Entities\DiscountItem.cs" />
     <Compile Include="Entities\ProductItem.cs" />
     <Compile Include="Entities\StoredCartItem.cs" />
+    <Compile Include="Exceptions\InsufficientQuantityException.cs" />
+    <Compile Include="Exceptions\ItemExpiredException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ICartRepository.cs" />
     <Compile Include="Repositories\IDiscountRepository.cs" />

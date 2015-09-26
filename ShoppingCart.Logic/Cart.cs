@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ShoppingCart.Logic.Entities;
+using ShoppingCart.Logic.Exceptions;
 using ShoppingCart.Logic.Repositories;
 
 namespace ShoppingCart.Logic
@@ -35,7 +36,7 @@ namespace ShoppingCart.Logic
             Owner = userName;
             _storedCartItems = _cartRepository.LoadCartItemsByUser(userName);
             _itemList = _productRepository.LoadProductItemsFromStoredCartItems(_storedCartItems);
-            _discountItems = _discountRepository.GetDisocDiscountsForProductList(_itemList);
+            _discountItems = _discountRepository.GetDisocDiscountsForProductList(_itemList) ?? new List<DiscountItem>();
             CartItems = new List<CartItem>();
             foreach (var storedCartItem in _storedCartItems)
             {
@@ -62,10 +63,10 @@ namespace ShoppingCart.Logic
                 var productItem = _itemList.FirstOrDefault(x => x.ProductId == cartItem.ProductId);
                 var discountItem = _discountItems.FirstOrDefault(x => x.ProductId == cartItem.ProductId);
                 if(productItem != null && cartItem.Quantity > productItem.Quantity)
-                    throw new Exception("'"+cartItem.ProductName + "' is either out of stock or there is an insufficient amount of it.");
+                    throw new InsufficientQuantityException(cartItem.ProductName);
                 if (productItem != null && productItem.ExpirationDate.Date < DateTime.Now.Date)
-                    throw new Exception("'"+cartItem.ProductName+"' has expired.");
-                subtotal += (discountItem != null ? cartItem.Price * discountItem.Discount : cartItem.Price);
+                    throw new ItemExpiredException(cartItem.ProductName);
+                subtotal += (discountItem != null ? cartItem.Quantity * cartItem.Price * discountItem.Discount : cartItem.Quantity * cartItem.Price);
             }
             return subtotal;
         }

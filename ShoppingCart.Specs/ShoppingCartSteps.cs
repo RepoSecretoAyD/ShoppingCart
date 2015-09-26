@@ -5,6 +5,7 @@ using Moq;
 using ShoppingCart.Logic;
 using ShoppingCart.Logic.Entities;
 using ShoppingCart.Logic.Repositories;
+using ShoppingCart.Logic.Exceptions;
 using TechTalk.SpecFlow;
 
 namespace ShoppingCart.Specs
@@ -70,7 +71,8 @@ namespace ShoppingCart.Specs
                     ProductId = int.Parse(row["ProductId"]),
                     ProductName = row["ProductName"],
                     Price = double.Parse(row["Price"]),
-                    Quantity = int.Parse(row["Quantity"])
+                    Quantity = int.Parse(row["Quantity"]),
+                    ExpirationDate = DateTime.Now
                 };
                 itemList.Add(item);
             }
@@ -87,7 +89,18 @@ namespace ShoppingCart.Specs
         [When(@"the subtotal is calculated")]
         public void WhenTheSubtotalIsCalculated()
         {
-            _subtotal = _cart.GetSubtotal();
+            try
+            {
+                _subtotal = _cart.GetSubtotal();
+            }
+            catch (ItemExpiredException e)
+            {
+                ScenarioContext.Current.Add("ItemExpired", e);
+            }
+            catch (InsufficientQuantityException e)
+            {
+                ScenarioContext.Current.Add("InsufficientQuantity", e);
+            }
         }
 
         [Then(@"the result should be (.*)")]
@@ -99,7 +112,8 @@ namespace ShoppingCart.Specs
         [Then(@"the user is presented with an error message")]
         public void ThenTheUserIsPresentedWithAnErrorMessage()
         {
-            throw new Exception("Quantity exceeds the ammount of products in existance!");
+            var exception = ScenarioContext.Current["InsufficientQuantity"];
+            Assert.IsNotNull(exception);
         }
     }
 }
