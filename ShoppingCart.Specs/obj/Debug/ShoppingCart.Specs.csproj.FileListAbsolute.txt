@@ -9,3 +9,25 @@ c:\users\william\documents\visual studio 2013\Projects\ShoppingCart\ShoppingCart
 c:\users\william\documents\visual studio 2013\Projects\ShoppingCart\ShoppingCart.Specs\obj\Debug\ShoppingCart.Specs.pdb
 c:\users\william\documents\visual studio 2013\Projects\ShoppingCart\ShoppingCart.Specs\bin\Debug\ShoppingCart.Logic.dll
 c:\users\william\documents\visual studio 2013\Projects\ShoppingCart\ShoppingCart.Specs\bin\Debug\ShoppingCart.Logic.pdb
+C:\Users\Javier\Documents\GitHub\ShoppingCart\ShoppingCart.Specs\obj\Debug\ShoppingCart.Specs.csprojResolveAssemblyReference.cache
+C:\Users\Javier\Documents\GitHub\ShoppingCart\ShoppingCart.Specs\bin\Debug\ShoppingCart.Specs.dll.config
+C:\Users\Javier\Documents\GitHub\ShoppingCart\ShoppingCart.Specs\bin\Debug\ShoppingCart.Specs.dll
+C:\Users\Javier\Documents\GitHub\ShoppingCart\ShoppingCart.Specs\bin\Debug\ShoppingCart.Specs.pdb
+C:\Users\Javier\Documents\GitHub\ShoppingCart\ShoppingCart.Specs\bin\Debug\Moq.dll
+C:\Users\Javier\Documents\GitHub\ShoppingCart\ShoppingCart.Specs\bin\Debug\ShoppingCart.Logic.dll
+C:\Users\Javier\Documents\GitHub\ShoppingCart\ShoppingCart.Specs\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\Javier\Documents\GitHub\ShoppingCart\ShoppingCart.Specs\bin\Debug\ShoppingCart.Logic.pdb
+C:\Users\Javier\Documents\GitHub\ShoppingCart\ShoppingCart.Specs\bin\Debug\Moq.xml
+C:\Users\Javier\Documents\GitHub\ShoppingCart\ShoppingCart.Specs\obj\Debug\ShoppingCart.Specs.dll
+C:\Users\Javier\Documents\GitHub\ShoppingCart\ShoppingCart.Specs\obj\Debug\ShoppingCart.Specs.pdb
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Specs\bin\Debug\ShoppingCart.Specs.dll.config
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Specs\bin\Debug\ShoppingCart.Specs.dll
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Specs\bin\Debug\ShoppingCart.Specs.pdb
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Specs\bin\Debug\Moq.dll
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Specs\bin\Debug\ShoppingCart.Logic.dll
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Specs\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Specs\bin\Debug\ShoppingCart.Logic.pdb
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Specs\bin\Debug\Moq.xml
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Specs\obj\Debug\ShoppingCart.Specs.csprojResolveAssemblyReference.cache
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Specs\obj\Debug\ShoppingCart.Specs.dll
+C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 2\ShoppingCart.Specs\obj\Debug\ShoppingCart.Specs.pdb
